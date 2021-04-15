@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+.play-section {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin: auto;
+  margin-top: 50px;
+  height: 600px;
+  width: 600px;
+  background-image: url(/image/ground.jpg);
+}
+.grass {
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/gras.png);
+  background-position: center;
+  background-size: contain; 
+}
+.snake {
+  position: absolute;
+  top: 300px;
+  left: 250px;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/snake.png);
+  background-position: center;
+  background-size: contain; 
+}
+.food {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/strawberry.png);
+  background-position: center;
+  background-size: contain; 
+}
