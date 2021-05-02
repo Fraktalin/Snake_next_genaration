@@ -1,9 +1,12 @@
-let background = document.querySelector('.play-section');
-let grass = `<div class='grass'></div>`;
-let snake = `<div class='snake'></div>`;
-let food = `<div class='food'></div>`;
-let snakeBody = `<div class='body-snake'></div>`;
-let pasteScore = document.querySelector('.curren-score')
+
+
+const background = document.querySelector('.play-section');
+const grass = `<div class='grass'></div>`;
+const snake = `<div class='snake'></div>`;
+const pasteScore = document.querySelector('.curren-score');
+const endGame = document.querySelector('.end-game');
+let direction = 'ArrowRight'
+
 function createFloor() {
   for (let i = 0; i < 144; i++) {
     background.innerHTML += grass;
@@ -11,132 +14,156 @@ function createFloor() {
 }
 createFloor();
 
-let startPos = background.childNodes[66];
-let startStraw = background.childNodes[1];
-let startbody = background.childNodes[65];
+let excel = document.getElementsByClassName('grass');
+let x = 1;
+let y = 12;
 
-startStraw.innerHTML = food;
-
-let newFood = document.getElementsByClassName("food")[0];
-startbody.innerHTML = snakeBody
-function createSnake() {
-  startPos.innerHTML = snake;
+for (let i = 0; i < excel.length; i++) {
+  if (x > 12) {
+    x = 1;
+    y--
+  }
+  excel[i].setAttribute('posX', x);
+  excel[i].setAttribute('posY', y);
+  x++
 }
-createSnake()
 
-let movingBody = document.getElementsByClassName("body-snake")[0];
+function generateSnake() {
+  let posX = 6;
+  let posY = 6;
+  return [posX, posY]
+}
 
-console.log(movingBody.style);
-let movingSnake = document.getElementsByClassName("snake")[0];
+let coordinates = generateSnake();
+let snakeBody = [document.querySelector('[posX= "' + coordinates[0] + '"][posY="' + coordinates[1] + '"]'),
+document.querySelector('[posX= "' + (coordinates[0] - 1) + '"][posY="' + coordinates[1] + '"]')];
 
-var blockTop = 300;
-var blockLeft = 250;
-document.body.addEventListener("keydown", moveBlock);
-document.body.addEventListener("keydown", checkPos);
+console.log(snakeBody);
 
-let direction = "ArrowRight";
+for (let i = 0; i < snakeBody.length; i++) {
+  if (i === 0) {
+    snakeBody[0].classList.add('snake');
+  }
+  else {
+    snakeBody[i].classList.add('body-snake');
+  }
+}
 
-let checkDir = 'ArrowRight';
-function moveBlock(e) {
+
+let food;
+
+function createFood() {
+  function generateFood() {
+    let posX = Math.round(Math.random() * (12 - 1) + 1);
+    let posY = Math.round(Math.random() * (12 - 1) + 1);
+    return [posX, posY];
+  }
+  let foodCoordinates = generateFood();
+  food = [document.querySelector('[posX= "' + foodCoordinates[0] + '"][posY="' + foodCoordinates[1] + '"]')];
+  while (food[0].classList.contains('snakeBody')) {
+    let foodCoordinates = generateFood();
+    food = [document.querySelector('[posX= "' + foodCoordinates[0] + '"][posY="' + foodCoordinates[1] + '"]')];
+  }
+
+  food[0].classList.add('food');
+}
+function gameOver() {
+  background.classList.add('game-over')
+  endGame.classList.add('active')
+  clearInterval(interval)
+
+}
+
+createFood()
+let score = 0;
+function move() {
+  let snakeCoordinates = [snakeBody[0].getAttribute('posX'), snakeBody[0].getAttribute('posY')];
+  snakeBody[0].classList.remove('snake');
+  snakeBody[snakeBody.length - 1].classList.remove('body-snake');
+  snakeBody.pop();
+
+  if (direction === 'ArrowRight') {
+    if (snakeCoordinates[0] > 11) {
+      gameOver()
+    }
+    snakeBody.unshift(document.querySelector('[posX= "' + (+snakeCoordinates[0] + 1) + '"][posY="' + snakeCoordinates[1] + '"]'));
+    snakeBody[0].style.transform = 'rotate(0deg)';
+  }
+  else if (direction === 'ArrowLeft') {
+    if (snakeCoordinates[0] < 2) {
+      gameOver()
+    }
+    snakeBody.unshift(document.querySelector('[posX= "' + (+snakeCoordinates[0] - 1) + '"][posY="' + snakeCoordinates[1] + '"]'));
+    snakeBody[0].style.transform = 'scale(-1, 1)';
+  }
+  else if (direction === 'ArrowUp') {
+    if (snakeCoordinates[1] > 11) {
+      gameOver()
+    }
+    snakeBody.unshift(document.querySelector('[posX= "' + (+snakeCoordinates[0]) + '"][posY="' + (+snakeCoordinates[1] + 1) + '"]'));
+    snakeBody[0].style.transform = 'rotate(-90deg)';
+  }
+  else if (direction === 'ArrowDown') {
+    if (snakeCoordinates[1] < 2) {
+      gameOver()
+    }
+    snakeBody.unshift(document.querySelector('[posX= "' + (+snakeCoordinates[0]) + '"][posY="' + (+snakeCoordinates[1] - 1) + '"]'));
+    snakeBody[0].style.transform = 'rotate(90deg)';
+  }
+
+  if (snakeBody[0].getAttribute('posX') === food[0].getAttribute('posX') && snakeBody[0].getAttribute('posY') === food[0].getAttribute('posy')) {
+    food[0].classList.remove('food');
+    let a = snakeBody[snakeBody.length - 1].getAttribute('posX');
+    let b = snakeBody[snakeBody.length - 1].getAttribute('posY');
+    snakeBody.push(document.querySelector('[posX ="' + a + '"][posY ="' + b + '"]'));
+    score++
+    pasteScore.innerText = score
+    console.log(score);
+    createFood();
+  }
+  if (snakeBody[0].classList.contains('body-snake')) {
+    gameOver()
+  }
+  for (let i = 0; i < snakeBody.length; i++) {
+    if (i === 0) {
+      snakeBody[0].classList.add('snake');
+    }
+    else {
+      snakeBody[i].classList.add('body-snake');
+    }
+  }
+}
+
+let interval = setInterval(move, 300);
+
+window.addEventListener('keydown', checkDirection);
+function checkDirection(e) {
   switch (e.key) {
     case 'ArrowDown':
-      if (checkDir !== 'ArrowUp') {
-        movingBody.style.transform = 'rotate(90deg)'
-        movingSnake.style.transform = 'rotate(90deg)'
+      if (direction !== 'ArrowUp') {
+        snakeBody[0].style.transform = 'rotate(90deg)';
         direction = e.key
       }
       break
     case 'ArrowUp':
-      if (checkDir !== 'ArrowDown') {
-        movingSnake.style.transform = 'rotate(-90deg)'
-        movingBody.style.transform = 'rotate(-90deg)'
+      if (direction !== 'ArrowDown') {
+        snakeBody[0].style.transform = 'rotate(-90deg)';
         direction = e.key
       }
       break
     case 'ArrowLeft':
-      if (checkDir !== 'ArrowRight') {
-        movingSnake.style.transform = 'scale(-1, 1)'
-        movingBody.style.transform = 'scale(-1, 1)'
+      if (direction !== 'ArrowRight') {
+        snakeBody[0].style.transform = 'scale(-1, 1)';
         direction = e.key
       }
       break
     case 'ArrowRight':
-      if (checkDir !== 'ArrowLeft') {
-        movingSnake.style.transform = 'rotate(0deg)'
-        movingBody.style.transform = 'rotate(0deg)'
+      if (direction !== 'ArrowLeft') {
+        snakeBody[0].style.transform = 'rotate(0deg)';
         direction = e.key
       }
       break
     default: direction = 'ArrowRight';
-  }
-  checkDir = direction
-}
-
-setInterval(function () {
-  let bodyTop1 = blockTop
-  let bodyLeft1 = blockLeft
-  console.log(bodyTop1);
-  switch (direction) {
-    case 'ArrowDown':
-      if (blockTop < 600 - 50) {
-        blockTop += 50;
-        movingSnake.style.top = blockTop + "px";
-        movingBody.style.top = bodyTop1 + 'px';
-        movingBody.style.left = bodyLeft1 + 'px';
-      }
-      break
-    case 'ArrowUp':
-      if (blockTop > 0) {
-        blockTop = blockTop - 50;
-        movingSnake.style.top = blockTop + "px";
-        movingBody.style.top = bodyTop1 + 'px';
-        movingBody.style.left = bodyLeft1 + 'px';
-      }
-      break
-    case 'ArrowLeft':
-      if (blockLeft > 0) {
-        blockLeft = blockLeft - 50;
-        movingSnake.style.left = blockLeft + "px";
-        movingBody.style.top = bodyTop1 + 'px';
-        movingBody.style.left = bodyLeft1 + 'px';
-      }
-      break
-    case 'ArrowRight':
-      if (blockLeft < 600 - 50) {
-        blockLeft += 50;
-        movingSnake.style.left = blockLeft + "px";
-        movingBody.style.top = bodyTop1 + 'px';
-        movingBody.style.left = bodyLeft1 + 'px';
-      }
-      break
-    default: blockLeft += 50;
-      movingSnake.style.left = blockLeft + "px";
-  }
-  checkPos()
-}, 400);
-
-
-
-
-
-function createRandom() {
-  let placeFoodX = Math.round(Math.random() * 550);
-  let placeFoodY = Math.round(Math.random() * 550);
-  placeFoodX = Math.round(placeFoodX / 50) * 50
-  placeFoodY = Math.round(placeFoodY / 50) * 50
-  createFood(placeFoodX, placeFoodY)
-}
-createRandom();
-
-function createFood(x, y) {
-  newFood.style.left = x + 'px';
-  newFood.style.top = y + 'px';
-}
-let score = 0
-function checkPos(e) {
-  if (movingSnake.style.top === newFood.style.top && movingSnake.style.left === newFood.style.left) {
-    score++
-    pasteScore.innerText = score
-    createRandom();
+      console.log(direction);
   }
 }
