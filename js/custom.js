@@ -13,19 +13,27 @@ const backMenu = document.querySelector('.shop-button__main');
 const currMoney = document.querySelector('.money');
 const pasteMoney = document.querySelector('.current-money');
 const itemsShop = document.querySelectorAll('.shop-wrap');
-const skillButton = document.querySelector('.shop-button__skills');
-const rouletteButton = document.querySelector('.shop-button__roulette');
-const skinbutton = document.querySelector('.shop-button__skins');
 const startRouletteButton = document.querySelector('.start');
 const cards_block = document.querySelector('.cards');
 const cards = document.querySelectorAll('.cards-item');
 const shopBlocks = document.querySelectorAll('.shop-block');
-console.log(shopBlocks[0].attributes[0].value);
+const shopButtonsBlock = document.querySelectorAll('.shop-button');
+const profileButton = document.querySelector('.profile-button');
+const skinsInputs = document.querySelectorAll('.input-wrap');
+const radioChoice = document.querySelectorAll('.radio-choice');
+const headsInputs = document.querySelectorAll('.input-wrap-head');
+const radioHeadChoice = document.querySelectorAll('.radio-head-choice');
+console.log(userData);
 
-for (const iterator of itemsShop) {
+for (let iterator of itemsShop) {
   iterator.addEventListener('click', buyItem)
 }
-
+for (let iterator of radioChoice) {
+  iterator.addEventListener('change', radioSelectSkin)
+}
+for (let iterator of radioHeadChoice) {
+  iterator.addEventListener('change', radioSelectHead)
+}
 console.log(localStorage.getItem('UserData'));
 
 if (localStorage.getItem('UserData')) {
@@ -33,23 +41,43 @@ if (localStorage.getItem('UserData')) {
 }
 else {
   var userData = {
-    money: 0,
+    money: 500,
     bufFruit: false,
     horizontal: false,
     vertical: false,
     suit: false,
+    skins: {
+      lgbt: false,
+      cyber: false,
+      punk: false,
+      zebra: false,
+    },
+    heads: {
+      black: false,
+      pink: false,
+      vampire: false,
+      vampireHat: false,
+    },
+    selectBodySkin: 'body-snake',
+    selectHeadSkin: 'snake',
   }
 }
-rouletteButton.addEventListener('click', swapShopBlock);
-skinbutton.addEventListener('click', swapShopBlock);
-skillButton.addEventListener('click', swapShopBlock);
+
+for (let i of shopButtonsBlock) {
+  i.addEventListener('click', swapShopBlock);
+}
 startRouletteButton.addEventListener('click', startRoulette);
 backMenu.addEventListener('click', goMainFromShop)
 shopButton.addEventListener('click', goShop)
 endButton.addEventListener('click', goMainMenu);
 startBtn.addEventListener('click', startGame);
-
+profileButton.addEventListener('click', drawSkins);
+profileButton.addEventListener('click', drawHeads)
 function swapShopBlock() {
+  for (let i of shopButtonsBlock) {
+    i.classList.remove('shop-button--active')
+  }
+  this.classList.add('shop-button--active')
   for (let i of shopBlocks) {
     i.classList.remove('active');
     i.classList.add('hide');
@@ -105,10 +133,10 @@ function startGame() {
 
   for (let i = 0; i < snakeBody.length; i++) {
     if (i === 0) {
-      snakeBody[0].classList.add('snake');
+      snakeBody[0].classList.add(userData.selectHeadSkin);
     }
     else {
-      snakeBody[i].classList.add('body-snake');
+      snakeBody[i].classList.add(userData.selectBodySkin);
     }
   }
 
@@ -123,7 +151,7 @@ function startGame() {
     }
     let foodCoordinates = generateFood();
     food = [document.querySelector('[posX= "' + foodCoordinates[0] + '"][posY="' + foodCoordinates[1] + '"]')];
-    while (food[0].classList.contains('body-snake')) {
+    while (food[0].classList.contains(userData.selectBodySkin)) {
       let foodCoordinates = generateFood();
       food = [document.querySelector('[posX= "' + foodCoordinates[0] + '"][posY="' + foodCoordinates[1] + '"]')];
     }
@@ -140,8 +168,8 @@ function startGame() {
   pasteScore.innerText = score
   function move() {
     let snakeCoordinates = [snakeBody[0].getAttribute('posX'), snakeBody[0].getAttribute('posY')];
-    snakeBody[0].classList.remove('snake');
-    snakeBody[snakeBody.length - 1].classList.remove('body-snake');
+    snakeBody[0].classList.remove(userData.selectHeadSkin);
+    snakeBody[snakeBody.length - 1].classList.remove(userData.selectBodySkin);
     snakeBody.pop();
 
     if (direction === 'ArrowRight') {
@@ -219,15 +247,15 @@ function startGame() {
       pasteScore.innerText = score
       createFood();
     }
-    if (snakeBody[0].classList.contains('body-snake')) {
+    if (snakeBody[0].classList.contains(userData.selectBodySkin)) {
       gameOver()
     }
     for (let i = 0; i < snakeBody.length; i++) {
       if (i === 0) {
-        snakeBody[0].classList.add('snake');
+        snakeBody[0].classList.add(userData.selectHeadSkin);
       }
       else {
-        snakeBody[i].classList.add('body-snake');
+        snakeBody[i].classList.add(userData.selectBodySkin);
       }
     }
   }
@@ -318,7 +346,47 @@ function goShop() {
     itemsShop[3].lastElementChild.innerText = 'Sold'
     itemsShop[3].removeEventListener('click', buyItem)
   }
-  console.log();
+  if (userData.skins.cyber === true) {
+    itemsShop[4].classList.add('shop-wrap-active');
+    itemsShop[4].lastElementChild.innerText = 'Sold'
+    itemsShop[4].removeEventListener('click', buyItem)
+  }
+  if (userData.skins.punk === true) {
+    itemsShop[5].classList.add('shop-wrap-active');
+    itemsShop[5].lastElementChild.innerText = 'Sold'
+    itemsShop[5].removeEventListener('click', buyItem)
+  }
+  if (userData.skins.zebra === true) {
+    itemsShop[6].classList.add('shop-wrap-active');
+    itemsShop[6].lastElementChild.innerText = 'Sold'
+    itemsShop[6].removeEventListener('click', buyItem)
+  }
+  if (userData.skins.lgbt === true) {
+    itemsShop[7].classList.add('shop-wrap-active');
+    itemsShop[7].lastElementChild.innerText = 'Sold'
+    itemsShop[7].removeEventListener('click', buyItem)
+  }
+  if (userData.heads.black === true) {
+    itemsShop[8].classList.add('shop-wrap-active');
+    itemsShop[8].lastElementChild.innerText = 'Sold'
+    itemsShop[8].removeEventListener('click', buyItem)
+  }
+  if (userData.heads.pink === true) {
+    itemsShop[9].classList.add('shop-wrap-active');
+    itemsShop[9].lastElementChild.innerText = 'Sold'
+    itemsShop[9].removeEventListener('click', buyItem)
+  }
+  if (userData.heads.vampire === true) {
+    itemsShop[10].classList.add('shop-wrap-active');
+    itemsShop[10].lastElementChild.innerText = 'Sold'
+    itemsShop[10].removeEventListener('click', buyItem)
+  }
+  if (userData.heads.vampireHat === true) {
+    itemsShop[11].classList.add('shop-wrap-active');
+    itemsShop[11].lastElementChild.innerText = 'Sold'
+    itemsShop[11].removeEventListener('click', buyItem)
+  }
+  console.log(itemsShop);
   pasteMoney.innerText = userData.money
 }
 function buyItem() {
@@ -338,6 +406,30 @@ function buyItem() {
     else if (this.classList.contains('item-suit')) {
       userData.suit = true
     }
+    else if (this.classList.contains('item-cyber')) {
+      userData.skins.cyber = true
+    }
+    else if (this.classList.contains('item-punk')) {
+      userData.skins.punk = true
+    }
+    else if (this.classList.contains('item-zebra')) {
+      userData.skins.zebra = true
+    }
+    else if (this.classList.contains('item-lgbt')) {
+      userData.skins.lgbt = true
+    }
+    else if (this.classList.contains('item-skin-black')) {
+      userData.heads.black = true
+    }
+    else if (this.classList.contains('item-skin-pink')) {
+      userData.heads.pink = true
+    }
+    else if (this.classList.contains('item-skin-vampire')) {
+      userData.heads.vampire = true
+    }
+    else if (this.classList.contains('item-skin-vampirehat')) {
+      userData.heads.vampirehat = true
+    }
     localStorage.setItem("UserData", JSON.stringify(userData))
     this.classList.add('shop-wrap-active')
     this.lastElementChild.innerText = 'Sold'
@@ -347,13 +439,64 @@ function buyItem() {
   pasteMoney.innerText = userData.money
 }
 
+function drawSkins() {
+  for (let i of skinsInputs) {
+    if (userData.skins.lgbt === true && i.classList.contains('item-skin-lgbt')) {
+      i.firstElementChild.disabled = false
+    }
+    if (userData.skins.zebra === true && i.classList.contains('item-skin-zebra')) {
+      i.firstElementChild.disabled = false
+    }
+    if (userData.skins.punk === true && i.classList.contains('item-skin-punk')) {
+      i.firstElementChild.disabled = false
+    }
+    if (userData.skins.cyber === true && i.classList.contains('item-skin-cyber')) {
+      i.firstElementChild.disabled = false
+    }
+  }
+  localStorage.setItem("UserData", JSON.stringify(userData))
+}
+function drawHeads() {
+  for (let i of headsInputs) {
+    if (userData.heads.black === true && i.classList.contains('item-head-black')) {
+      i.firstElementChild.disabled = false
+    }
+    console.log(i);
+    if (userData.heads.pink === true && i.classList.contains('item-head-pink')) {
+      i.firstElementChild.disabled = false
+    }
+    if (userData.heads.vampire === true && i.classList.contains('item-head-vampire')) {
+      i.firstElementChild.disabled = false
+    }
+    if (userData.heads.vampireHat === true && i.classList.contains('item-head-vampirehat')) {
+      i.firstElementChild.disabled = false
+    }
+  }
+}
 
 function startRoulette() {
-  let random = Math.floor(Math.random() * 9); // От 0 до 8
+  if (userData.money - +this.lastElementChild.textContent >= 0) {
+    userData.money = userData.money - 100;
+    localStorage.setItem("UserData", JSON.stringify(userData));
+    pasteMoney.innerText = userData.money
+  }
+  let random = Math.floor(Math.random() * 9);
   cards_block.style.left = -random * 100 + 'px';
   setTimeout(function () {
     random++;
-    cards[random].style.background = '#7B90F7';
-    cards[random].style.color = 'white';
+    cards[random].style.background = 'rgb(60, 255, 0)';
+    cards[random].style.color = 'black';
   }, 5000)
+  for (let i of cards) {
+    i.style.background = 'white'
+  }
+}
+
+function radioSelectSkin() {
+  userData.selectBodySkin = this.value
+  localStorage.setItem("UserData", JSON.stringify(userData))
+}
+function radioSelectHead() {
+  userData.selectHeadSkin = this.value
+  localStorage.setItem("UserData", JSON.stringify(userData))
 }

@@ -35,9 +35,9 @@
     </section>
     <section class="shop-section hide">
       <div class="button-shop-wrap">
-        <button class="main-button shop-button__skills shop-button--active">Skills</button>
-        <button class="main-button shop-button__skins">Skins</button>
-        <button class="main-button shop-button__roulette">Roulette</button>
+        <button class="main-button shop-button__skills shop-button shop-button--active">Skills</button>
+        <button class="main-button shop-button__skins shop-button">Skins</button>
+        <button class="main-button shop-button__roulette shop-button">Roulette</button>
       </div>
       <div data-name="Skills" class="shop-block shop-section__skills-block active">
         <ul class="shop-list">
@@ -76,29 +76,204 @@
         </ul>
       </div>
       <div data-name="Skins" class="shop-block shop-section__skins-block hide">
-
+        <ul class="shop-list">
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-cyber">
+              <img class="shop-image" src="./image/body-cybepunk.png" alt="">
+              <span>Cyberpunk</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">350</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-punk">
+              <img class="shop-image" src="./image/body-punk.png" alt="">
+              <span>Punk</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">300</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-zebra">
+              <img class="shop-image" src="./image/body-zebra.png" alt="">
+              <span>Zebra</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">250</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-lgbt">
+              <img class="shop-image" src="./image/body-lgbt.png" alt="">
+              <span>You choice</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">50</span>
+            </div>
+          </li>
+        </ul>
+        <ul class="shop-list">
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-black">
+              <img class="shop-image" src="./image/snake-black.png" alt="">
+              <span>Black</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">300</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-pink">
+              <img class="shop-image" src="./image/snake-pink.png" alt="">
+              <span>Pink</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">300</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-vampire">
+              <img class="shop-image" src="./image/snake-vampire.png" alt="">
+              <span>Vampire</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">400</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-skin-vampirehat">
+              <img class="shop-image" src="./image/snake-vampire-hat.png" alt="">
+              <span>Vampire with hat</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">500</span>
+            </div>
+          </li>
+        </ul>
       </div>
       <div data-name="Roulette" class="shop-block shop-section__roulette-block hide">
+        <h3 class="roulette-cost">cost 100</h3>
         <div class="shadow"></div>
         <div class="random">
           <div class="result"></div>
           <div class="cards">
-            <div class="cards-item">1</div>
-            <div class="cards-item">2</div>
-            <div class="cards-item">3</div>
-            <div class="cards-item">4</div>
-            <div class="cards-item">5</div>
-            <div class="cards-item">6</div>
-            <div class="cards-item">7</div>
-            <div class="cards-item">8</div>
-            <div class="cards-item">9</div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-watermelon">
+                <img class="shop-image" src="./image/waterlemon.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-horizont">
+                <img class="shop-image" src="./image/horizoontal-walls.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-suit">
+                <img class="shop-image" src="./image/suit.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-vertical">
+                <img class="shop-image" src="./image/vertival-wall.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <span class="roulette-text">try again</span>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-skin-cyber">
+                <img class="shop-image" src="./image/body-cybepunk.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-lgbt">
+                <img class="shop-image" src="./image/body-lgbt.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-vertical">
+                <img class="shop-image" src="./image/body-zebra.png" alt="">
+              </div>
+            </div>
+            <div class="cards-item">
+              <div class="roulette-item-wrap item-skin-punk">
+                <img class="shop-image" src="./image/body-punk.png" alt="">
+              </div>
+            </div>
             <div class="cards-item">10</div>
             <div class="cards-item">11</div>
           </div>
         </div>
-        <button class="start">START</button>
+        <button class="start main-button">START</button>
       </div>
-      <button class="main-button shop-button__main">Main menu</button>
+      <div data-name="Profile" class="shop-block shop-section__profile-block hide">
+        <div class="profile-wrap">
+          <div class="profile-elem">
+            <h2>Choose Skin</h2>
+            <label class="input-wrap item-skin-def"><input class="radio-choice" type="radio" value="body-snake"
+                name="skin">
+              <div class="roulette-item-wrap">
+                <img class="shop-image" src="./image/body.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap item-skin-lgbt"><input class="radio-choice" type="radio" disabled="true"
+                value="body-snake-lgbt" name="skin">
+              <div class="roulette-item-wrap ">
+                <img class="shop-image" src="./image/body-lgbt.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap  item-skin-cyber"><input class="radio-choice" type="radio" disabled="true"
+                value="body-snake-cyber" name="skin">
+              <div class="roulette-item-wrap">
+                <img class="shop-image" src="./image/body-cybepunk.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap item-skin-punk"><input class="radio-choice" type="radio" disabled="true"
+                value="body-snake-punk" name="skin">
+              <div class="roulette-item-wrapk">
+                <img class="shop-image" src="./image/body-punk.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap item-skin-zebra"><input class="radio-choice" type="radio" disabled="true"
+                value="body-snake-zebra" name="skin">
+              <div class="roulette-item-wrap">
+                <img class="shop-image" src="./image/body-zebra.png" alt="">
+              </div>
+            </label>
+          </div>
+          <div class="profile-elem">
+            <h2>Choose Head</h2>
+            <label class="input-wrap item-head-def"><input class="radio-choice" type="radio" value="snake"
+                name="skin">
+              <div class="roulette-item-wrap">
+                <img class="shop-image" src="./image/snake.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap-head item-head-black"><input class="radio-head-choice" type="radio" disabled="true"
+                value="snake-black" name="skin">
+              <div class="roulette-item-wrap ">
+                <img class="shop-image" src="./image/snake-black.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap-head  item-head-pink"><input class="radio-head-choice" type="radio" disabled="true"
+                value="snake-pink" name="skin">
+              <div class="roulette-item-wrap">
+                <img class="shop-image" src="./image/snake-pink.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap-head  item-head-vampire"><input class="radio-head-choice" type="radio" disabled="true"
+                value="snake-vampire" name="skin">
+              <div class="roulette-item-wrapk">
+                <img class="shop-image" src="./image/snake-vampire.png" alt="">
+              </div>
+            </label>
+            <label class="input-wrap-head  item-head-vampire-hat"><input class="radio-head-choice" type="radio" disabled="true"
+                value="snake-vampire-hat" name="skin">
+              <div class="roulette-item-wrap">
+                <img class="shop-image" src="./image/snake-vampire-hat.png" alt="">
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="shop-button-wrap">
+        <button class="main-button shop-button__main">Main menu</button>
+        <button class="main-button shop-button profile-button">Profile</button>
+      </div>
     </section>
   </main>
   <footer class="main-footer"></footer>

@@ -3,6 +3,7 @@
 *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+          font-family: 'Zen Dots', cursive;
 }
 html {
   font-family: 'Zen Dots', cursive;
@@ -58,7 +59,7 @@ a {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
-
+  padding-bottom: 20px;
 }
 .video-filter {
   position: fixed;
@@ -115,10 +116,82 @@ body {
   background-position: center;
   background-size: contain; 
 }
+.body-snake-lgbt {
+  transition: .1s all;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/body-lgbt.png);
+  background-position: center;
+  background-size: contain; 
+}
+.body-snake-zebra {
+  transition: .1s all;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/body-zebra.png);
+  background-position: center;
+  background-size: contain; 
+}
+.body-snake-punk {
+  transition: .1s all;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/body-punk.png);
+  background-position: center;
+  background-size: contain; 
+}
+.body-snake-cyber {
+  transition: .1s all;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/body-cybepunk.png);
+  background-position: center;
+  background-size: contain; 
+}
 .snake {
   height: 50px;
   width: 50px;
   background-image: url(/image/snake.png);
+  background-position: center;
+  background-size: contain; 
+}
+.snake-vampire {
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/snake-vampire.png);
+  background-position: center;
+  background-size: contain; 
+}
+.snake-black {
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/snake-black.png);
+  background-position: center;
+  background-size: contain; 
+}
+.snake-pink {
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/snake-pink.png);
+  background-position: center;
+  background-size: contain; 
+}
+.snake-vampire-hat {
+  height: 50px;
+  width: 50px;
+  background-image: url(/image/snake-vampire-hat.png);
   background-position: center;
   background-size: contain; 
 }
@@ -219,7 +292,7 @@ body {
   justify-content: space-around;
 }
 .shop-button {
-  width: 15%;
+  width: 20%;
 }
 .money {
   font-size: 30px;
@@ -232,7 +305,7 @@ body {
 .shop-button__main {
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 50%;
 }
 .shop-wrap {
   text-align: center;
@@ -276,30 +349,42 @@ body {
 .shop-button--active:hover {
   background: #17b927;
 }
+.shop-button-wrap {
+  display: flex;
+}
+.profile-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .hide {
   display: none;
 }
-
-
+.input-wrap {
+  padding-top: 20px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+.input-wrap-head {
+  padding-top: 20px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
 
 button:focus {
 	outline: none;
 }
 .start {
-	position: absolute;
-	top: calc(50% + 100px);
-	left: 50%;
+  display: block;
+  margin: 0 auto;
 	background: #51D05E;
-	transform: translate(-50%, -50%);
-	width: 100px;
-	height: 25px;
 	border: 2px solid #4CBD58;
-	color: white;
-	font-weight: bold;
-	border-radius: 5px;
-	transition: 0.3s ease;
-	user-select: none;
-	cursor: pointer;
+	color: black;
+  margin-top: 150px;
 	filter: drop-shadow(2px 2px 2px rgba(89, 217, 102, 0.2));
 }
 .start:hover {
@@ -309,7 +394,7 @@ button:focus {
 	position: absolute;
 	z-index: 2;
 	left: 50%;
-	top: 50%;
+	top: 45%;
 	transform: translate(-50%, -50%);
 	border-radius: 10px;
 	border: 2px solid white;
@@ -321,7 +406,7 @@ button:focus {
 	position: absolute;
 	overflow: hidden;
 	left: 50%;
-	top: 50%;
+	top: 45%;
 	transform: translate(-50%, -50%);
 	border-radius: 10px;
 	width: 400px;
@@ -362,4 +447,63 @@ button:focus {
 	border: 10px solid transparent;
 	border-top: 20px solid #425DD8;
 	filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+.roulette-text {
+  text-align: center;
+  font-family: 'Zen Dots', cursive;
+  color: black;
+}
+.roulette-cost {
+  font-size: 40px;
+  margin-top: -50px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+input[type='radio']:after {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #b0b4b0;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #ffa500;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid rgb(0, 0, 0);
+}
+
+input[type='radio']:disabled:after {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #f3f3f3;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid rgb(255, 252, 252);
 }
