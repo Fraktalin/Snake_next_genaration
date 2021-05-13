@@ -12,18 +12,67 @@
 </head>
 
 <body>
+  <video class="video" muted autoplay loop width="100vw" src=".//image/Pixel - 20495.mp4"></video>
+  <div class="video-filter"></div>
   <header class="main-header">
-    <div class="perfect-score">
+    <div class="perfect-score hide">
       <span>score <span class="curren-score"></span></span>
     </div>
-    
+    <div class="money hide">
+      <span>Money <span class="current-money"></span></span>
+    </div>
   </header>
   <main class="main-section">
-    <section class="play-section">
-      
+    <section class="start-section active">
+      <button class="start-shop main-button">Shop</button>
+      <button class="start-game main-button">Start</button>
     </section>
-    <section class="end-game" >
-      конец игры
+    <section class="play-section hide">
+    </section>
+    <section class="end-game hide">
+      <h2 class="end-game--text">Game over</h2>
+      <button class="main-menu-button main-button">Main menu</button>
+    </section>
+    <section class="shop-section hide">
+      <div class="button-shop-wrap">
+        <button class="main-button shop-button__skills">Skills</button>
+        <button class="main-button shop-button__skins">Skins</button>
+      </div>
+      <ul class="shop-list">
+        <li class="shop-list-item">
+          <div class="shop-wrap item-watermelon">
+            <img class="shop-image" src="./image/waterlemon.png" alt="">
+            <span>Super Fruit</span>
+            <span class="cost-text">cost: </span>
+            <span class="cost">30</span>
+          </div>
+        </li>
+        <li class="shop-list-item">
+          <div class="shop-wrap item-horizont">
+            <img class="shop-image" src="./image/horizoontal-walls.png" alt="">
+            <span>Disable Horizontal walls</span>
+            <span class="cost-text">cost: </span>
+            <span class="cost">50</span>
+          </div>
+        </li>
+        <li class="shop-list-item">
+          <div class="shop-wrap item-vertical">
+            <img class="shop-image" src="./image/vertival-wall.png" alt="">
+            <span>Disable vertical walls</span>
+            <span class="cost-text">cost: </span>
+            <span class="cost">50</span>
+          </div>
+        </li>
+        <li class="shop-list-item">
+          <div class="shop-wrap item-suit">
+            <img class="shop-image" src="./image/suit.png" alt="">
+            <span>Buy suit</span>
+            <span class="cost-text">cost: </span>
+            <span class="cost">100</span>
+          </div>
+        </li>
+      </ul>
+      <button class="main-button shop-button__main">Main menu</button>
     </section>
   </main>
   <footer class="main-footer"></footer>
