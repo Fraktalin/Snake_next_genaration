@@ -35,43 +35,69 @@
     </section>
     <section class="shop-section hide">
       <div class="button-shop-wrap">
-        <button class="main-button shop-button__skills">Skills</button>
+        <button class="main-button shop-button__skills shop-button--active">Skills</button>
         <button class="main-button shop-button__skins">Skins</button>
+        <button class="main-button shop-button__roulette">Roulette</button>
       </div>
-      <ul class="shop-list">
-        <li class="shop-list-item">
-          <div class="shop-wrap item-watermelon">
-            <img class="shop-image" src="./image/waterlemon.png" alt="">
-            <span>Super Fruit</span>
-            <span class="cost-text">cost: </span>
-            <span class="cost">30</span>
+      <div data-name="Skills" class="shop-block shop-section__skills-block active">
+        <ul class="shop-list">
+          <li class="shop-list-item">
+            <div class="shop-wrap item-watermelon">
+              <img class="shop-image" src="./image/waterlemon.png" alt="">
+              <span>Super Fruit</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">30</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-horizont">
+              <img class="shop-image" src="./image/horizoontal-walls.png" alt="">
+              <span>Disable Horizontal walls</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">50</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-vertical">
+              <img class="shop-image" src="./image/vertival-wall.png" alt="">
+              <span>Disable vertical walls</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">50</span>
+            </div>
+          </li>
+          <li class="shop-list-item">
+            <div class="shop-wrap item-suit">
+              <img class="shop-image" src="./image/suit.png" alt="">
+              <span>Buy suit</span>
+              <span class="cost-text">cost: </span>
+              <span class="cost">100</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-name="Skins" class="shop-block shop-section__skins-block hide">
+
+      </div>
+      <div data-name="Roulette" class="shop-block shop-section__roulette-block hide">
+        <div class="shadow"></div>
+        <div class="random">
+          <div class="result"></div>
+          <div class="cards">
+            <div class="cards-item">1</div>
+            <div class="cards-item">2</div>
+            <div class="cards-item">3</div>
+            <div class="cards-item">4</div>
+            <div class="cards-item">5</div>
+            <div class="cards-item">6</div>
+            <div class="cards-item">7</div>
+            <div class="cards-item">8</div>
+            <div class="cards-item">9</div>
+            <div class="cards-item">10</div>
+            <div class="cards-item">11</div>
           </div>
-        </li>
-        <li class="shop-list-item">
-          <div class="shop-wrap item-horizont">
-            <img class="shop-image" src="./image/horizoontal-walls.png" alt="">
-            <span>Disable Horizontal walls</span>
-            <span class="cost-text">cost: </span>
-            <span class="cost">50</span>
-          </div>
-        </li>
-        <li class="shop-list-item">
-          <div class="shop-wrap item-vertical">
-            <img class="shop-image" src="./image/vertival-wall.png" alt="">
-            <span>Disable vertical walls</span>
-            <span class="cost-text">cost: </span>
-            <span class="cost">50</span>
-          </div>
-        </li>
-        <li class="shop-list-item">
-          <div class="shop-wrap item-suit">
-            <img class="shop-image" src="./image/suit.png" alt="">
-            <span>Buy suit</span>
-            <span class="cost-text">cost: </span>
-            <span class="cost">100</span>
-          </div>
-        </li>
-      </ul>
+        </div>
+        <button class="start">START</button>
+      </div>
       <button class="main-button shop-button__main">Main menu</button>
     </section>
   </main>

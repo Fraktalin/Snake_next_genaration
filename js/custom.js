@@ -13,6 +13,14 @@ const backMenu = document.querySelector('.shop-button__main');
 const currMoney = document.querySelector('.money');
 const pasteMoney = document.querySelector('.current-money');
 const itemsShop = document.querySelectorAll('.shop-wrap');
+const skillButton = document.querySelector('.shop-button__skills');
+const rouletteButton = document.querySelector('.shop-button__roulette');
+const skinbutton = document.querySelector('.shop-button__skins');
+const startRouletteButton = document.querySelector('.start');
+const cards_block = document.querySelector('.cards');
+const cards = document.querySelectorAll('.cards-item');
+const shopBlocks = document.querySelectorAll('.shop-block');
+console.log(shopBlocks[0].attributes[0].value);
 
 for (const iterator of itemsShop) {
   iterator.addEventListener('click', buyItem)
@@ -32,10 +40,26 @@ else {
     suit: false,
   }
 }
+rouletteButton.addEventListener('click', swapShopBlock);
+skinbutton.addEventListener('click', swapShopBlock);
+skillButton.addEventListener('click', swapShopBlock);
+startRouletteButton.addEventListener('click', startRoulette);
 backMenu.addEventListener('click', goMainFromShop)
 shopButton.addEventListener('click', goShop)
 endButton.addEventListener('click', goMainMenu);
 startBtn.addEventListener('click', startGame);
+
+function swapShopBlock() {
+  for (let i of shopBlocks) {
+    i.classList.remove('active');
+    i.classList.add('hide');
+    if (this.textContent === i.attributes[0].value) {
+      i.classList.remove('hide');
+      i.classList.add('active');
+    }
+  }
+}
+
 
 let direction = 'ArrowRight'
 function startGame() {
@@ -321,4 +345,15 @@ function buyItem() {
   }
   console.log(this);
   pasteMoney.innerText = userData.money
+}
+
+
+function startRoulette() {
+  let random = Math.floor(Math.random() * 9); // От 0 до 8
+  cards_block.style.left = -random * 100 + 'px';
+  setTimeout(function () {
+    random++;
+    cards[random].style.background = '#7B90F7';
+    cards[random].style.color = 'white';
+  }, 5000)
 }
