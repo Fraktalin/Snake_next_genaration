@@ -11,6 +11,13 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+button {
+  cursor: pointer;
+}
+label,
+input {
+  cursor: pointer;
+}
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
@@ -94,7 +101,12 @@ a {
   height: 600px;
 }
 body {
-  overflow-y: hidden
+  overflow-y: hidden; 
+}
+.body-damage {
+  -webkit-box-shadow: 0px 0px 15px 37px rgba(255, 0, 0, 0.37) inset;
+  -moz-box-shadow: 0px 0px 15px 37px rgba(255, 0, 0, 0.37) inset;
+  box-shadow: 0px 0px 15px 37px rgba(255, 0, 0, 0.37) inset;
 }
 .grass {
   padding: 0;

@@ -41,7 +41,7 @@ if (localStorage.getItem('UserData')) {
 }
 else {
   var userData = {
-    money: 500,
+    money: 5000,
     bufFruit: false,
     horizontal: false,
     vertical: false,
@@ -300,6 +300,7 @@ function goMainMenu() {
   mainSection.classList.remove('hide');
   endGame.classList.add('hide');
   endGame.classList.remove('active');
+  document.classList.remove('body-damage');
 }
 function goMainFromShop() {
   currMoney.classList.add('hide');
@@ -310,15 +311,21 @@ function goMainFromShop() {
   shopSection.classList.remove('active');
 }
 function gameOver() {
-  while (background.firstChild) {
-    background.removeChild(background.firstChild);
+  if (userData.suit === true) {
+    userData.money = userData.money + +pasteScore.textContent;
+    localStorage.setItem("UserData", JSON.stringify(userData));
   }
-  background.classList.add('hide')
-  endGame.classList.remove('hide')
-  endGame.classList.add('active')
-  userData.money = userData.money + +pasteScore.textContent;
-  localStorage.setItem("UserData", JSON.stringify(userData))
-  scoresection.classList.add('hide');
+  else{
+    while (background.firstChild) {
+      background.removeChild(background.firstChild);
+    }
+    background.classList.add('hide')
+    endGame.classList.remove('hide')
+    endGame.classList.add('active')
+    userData.money = userData.money + +pasteScore.textContent;
+    localStorage.setItem("UserData", JSON.stringify(userData))
+    scoresection.classList.add('hide');
+  }
 }
 function goShop() {
   currMoney.classList.add('active');
@@ -386,7 +393,6 @@ function goShop() {
     itemsShop[11].lastElementChild.innerText = 'Sold'
     itemsShop[11].removeEventListener('click', buyItem)
   }
-  console.log(itemsShop);
   pasteMoney.innerText = userData.money
 }
 function buyItem() {
@@ -404,7 +410,18 @@ function buyItem() {
       background.classList.add('border-top')
     }
     else if (this.classList.contains('item-suit')) {
+      userData.vertical = true
+      background.classList.add('border-top')
+      userData.horizontal = true
+      background.classList.add('border-left')
       userData.suit = true
+      for (let i of itemsShop) {
+        if (i.classList.contains('item-vertical') || i.classList.contains('item-horizont')) {
+          i.classList.add('shop-wrap-active');
+          i.lastElementChild.innerText = 'Sold';
+          i.removeEventListener('click', buyItem);
+        }
+      }
     }
     else if (this.classList.contains('item-cyber')) {
       userData.skins.cyber = true
@@ -427,11 +444,11 @@ function buyItem() {
     else if (this.classList.contains('item-skin-vampire')) {
       userData.heads.vampire = true
     }
-    else if (this.classList.contains('item-skin-vampirehat')) {
-      userData.heads.vampirehat = true
+    else if (this.classList.contains('item-head-vampire-hat')) {
+      userData.heads.vampireHat = true
     }
     localStorage.setItem("UserData", JSON.stringify(userData))
-    this.classList.add('shop-wrap-active')
+    this.classList.add('shop-wrap-active');
     this.lastElementChild.innerText = 'Sold'
     this.removeEventListener('click', buyItem)
   }
@@ -454,7 +471,6 @@ function drawSkins() {
       i.firstElementChild.disabled = false
     }
   }
-  localStorage.setItem("UserData", JSON.stringify(userData))
 }
 function drawHeads() {
   for (let i of headsInputs) {
@@ -468,14 +484,14 @@ function drawHeads() {
     if (userData.heads.vampire === true && i.classList.contains('item-head-vampire')) {
       i.firstElementChild.disabled = false
     }
-    if (userData.heads.vampireHat === true && i.classList.contains('item-head-vampirehat')) {
+    if (userData.heads.vampireHat === true && i.classList.contains('item-head-vampire-hat')) {
       i.firstElementChild.disabled = false
     }
   }
 }
 
 function startRoulette() {
-  if (userData.money - +this.lastElementChild.textContent >= 0) {
+  if (userData.money - 100 >= 0) {
     userData.money = userData.money - 100;
     localStorage.setItem("UserData", JSON.stringify(userData));
     pasteMoney.innerText = userData.money
