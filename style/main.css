@@ -178,7 +178,7 @@ body {
 .snake-vampire {
   height: 50px;
   width: 50px;
-  background-image: url'(../image/snake-vampire.png');
+  background-image: url('../image/snake-vampire.png');
   background-position: center;
   background-size: contain; 
 }
@@ -276,7 +276,6 @@ body {
   align-items: center;
   animation: radial-pulse 0.7s infinite alternate ;
 }
-
 @keyframes radial-pulse {
   0% {
     box-shadow: 0px 0px 15px 20px rgba(255, 0, 0, 0.37) inset;
@@ -397,7 +396,6 @@ body {
   align-items: center;
   justify-content: space-between; 
 }
-
 button:focus {
 	outline: none;
 }

@@ -44,12 +44,10 @@ function readTextFile(file, callback) {
 
 readTextFile("./data/items.json", function (text) {
   dataItems = JSON.parse(text);
-  console.log(dataItems);
 });
 
 readTextFile("./data/cosmetics.json", function (text) {
   dataCosmetics = JSON.parse(text);
-  console.log(dataCosmetics);
 });
 
 for (let iterator of radioChoice) {
@@ -127,7 +125,7 @@ function startGame() {
     for (let i = 0; i < 144; i++) {
       background.innerHTML += `<div class='grass'></div>`;
     }
-    background.innerHTML +=`<audio src="./multimedia/kalambur.mp3" preload loop autoplay></audio>`
+    background.innerHTML +=`<audio src="./multimedia/kalambur.mp3" preload loop autoplay></audio>`;
   }
   createFloor();
 
@@ -155,8 +153,6 @@ function startGame() {
   let coordinates = generateSnake();
   let snakeBody = [document.querySelector('[posX= "' + coordinates[0] + '"][posY="' + coordinates[1] + '"]'),
   document.querySelector('[posX= "' + (coordinates[0] - 1) + '"][posY="' + coordinates[1] + '"]')];
-
-  console.log(snakeBody);
 
   for (let i = 0; i < snakeBody.length; i++) {
     if (i === 0) {
@@ -491,7 +487,6 @@ function buyItem() {
     this.lastElementChild.innerText = 'Sold';
     this.removeEventListener('click', buyItem);
   }
-  console.log(this);
   pasteMoney.innerText = userData.money;
 }
 
@@ -516,7 +511,6 @@ function drawHeads() {
     if (userData.heads.black === true && i.classList.contains('item-head-black')) {
       i.firstElementChild.disabled = false;
     }
-    console.log(i);
     if (userData.heads.pink === true && i.classList.contains('item-head-pink')) {
       i.firstElementChild.disabled = false;
     }
@@ -533,24 +527,23 @@ function startRoulette() {
   cards = document.querySelectorAll('.cards-item');
   if (userData.money - 100 >= 0) {
     userData.money = userData.money - 100;
-    audioBuy.play();
-    audioCasino.play();
     localStorage.setItem("UserData", JSON.stringify(userData));
     pasteMoney.innerText = userData.money;
-  }
-  let random = Math.floor(Math.random() * cards.length);
-  console.log(random);
-  cards_block.style.left = -random * 105 + 'px';
-  setTimeout(function () {
-    random++;
-    cards[random].style.background = 'rgb(60, 255, 0)';
-    cards[random].style.color = 'black';
-    if (cards[random].firstElementChild.classList[1]) {
-      getRouletteItem(cards[random].firstElementChild);
+    audioBuy.play();
+    audioCasino.play();
+    let random = Math.floor(Math.random() * cards.length);
+    cards_block.style.left = -random * 105 + 'px';
+    setTimeout(function () {
+      random++;
+      cards[random].style.background = 'rgb(60, 255, 0)';
+      cards[random].style.color = 'black';
+      if (cards[random].firstElementChild.classList[1]) {
+        getRouletteItem(cards[random].firstElementChild);
+      }
+    }, 5000);
+    for (let i of cards) {
+      i.style.background = 'white';
     }
-  }, 5000);
-  for (let i of cards) {
-    i.style.background = 'white';
   }
 }
 function getRouletteItem(prize) {
