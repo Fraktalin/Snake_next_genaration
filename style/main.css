@@ -80,7 +80,7 @@ a {
 }
 .play-section {
   border: 10px solid red;
-  border-image: url(../image/wall.jpg) 30 round round;
+  border-image: url('../image/wall.jpg') 30 round round;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -89,7 +89,7 @@ a {
   margin-top: 5px;
   height: 620px;
   width: 620px;
-  background-image: url(/image/ground.jpg);
+  background-image: url('../image/ground.jpg');
 }
 .border-left {
   border-left: none;
@@ -109,7 +109,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/gras.png);
+  background-image: url('../image/gras.png');
   background-position: center;
   background-size: contain; 
 }
@@ -120,7 +120,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/body.png);
+  background-image: url('../image/body.png');
   background-position: center;
   background-size: contain; 
 }
@@ -131,7 +131,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/body-lgbt.png);
+  background-image: url('../image/body-lgbt.png');
   background-position: center;
   background-size: contain; 
 }
@@ -142,7 +142,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/body-zebra.png);
+  background-image: url('../image/body-zebra.png');
   background-position: center;
   background-size: contain; 
 }
@@ -153,7 +153,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/body-punk.png);
+  background-image: url('../image/body-punk.png');
   background-position: center;
   background-size: contain; 
 }
@@ -164,42 +164,42 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/body-cybepunk.png);
+  background-image: url('../image/body-cybepunk.png');
   background-position: center;
   background-size: contain; 
 }
 .snake {
   height: 50px;
   width: 50px;
-  background-image: url(/image/snake.png);
+  background-image: url('../image/snake.png');
   background-position: center;
   background-size: contain; 
 }
 .snake-vampire {
   height: 50px;
   width: 50px;
-  background-image: url(/image/snake-vampire.png);
+  background-image: url'(../image/snake-vampire.png');
   background-position: center;
   background-size: contain; 
 }
 .snake-black {
   height: 50px;
   width: 50px;
-  background-image: url(/image/snake-black.png);
+  background-image: url('../image/snake-black.png');
   background-position: center;
   background-size: contain; 
 }
 .snake-pink {
   height: 50px;
   width: 50px;
-  background-image: url(/image/snake-pink.png);
+  background-image: url('../image/snake-pink.png');
   background-position: center;
   background-size: contain; 
 }
 .snake-vampire-hat {
   height: 50px;
   width: 50px;
-  background-image: url(/image/snake-vampire-hat.png);
+  background-image: url('../image/snake-vampire-hat.png');
   background-position: center;
   background-size: contain; 
 }
@@ -208,7 +208,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/strawberry.png);
+  background-image: url('../image/strawberry.png');
   background-position: center;
   background-size: contain; 
 }
@@ -217,7 +217,7 @@ body {
   margin: 0;
   height: 50px;
   width: 50px;
-  background-image: url(/image/waterlemon.png);
+  background-image: url('../image/waterlemon.png');
   background-position: center;
   background-size: contain; 
 }
