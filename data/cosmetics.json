@@ -3,56 +3,56 @@
   "id": 1,
   "name": "Cyberpunk",
   "class": "item-cyber",
-  "image": "../image/body-cybepunk.png",
+  "image": "./image/body-cybepunk.png",
   "cost": 350
   },
   {
     "id": 2,
     "name": "Punk",
     "class": "item-punk",
-    "image": "../image/body-punk.png",
+    "image": "./image/body-punk.png",
     "cost": 300
   },
   {
     "id": 3,
     "name": "Zebra",
     "class": "item-zebra",
-    "image": "../image/body-zebra.png",
+    "image": "./image/body-zebra.png",
     "cost": 250
   },
   {
     "id": 4,
     "name": "You choice",
     "class": "item-lgbt",
-    "image": "../image/body-lgbt.png",
+    "image": "./image/body-lgbt.png",
     "cost": 50
   },
   {
     "id": 5,
     "name": "Black",
     "class": "item-skin-black",
-    "image": "../image/snake-black.png",
+    "image": "./image/snake-black.png",
     "cost": 300
   },
   {
     "id": 6,
     "name": "Pink",
     "class": "item-skin-pink",
-    "image": "../image/snake-pink.png",
+    "image": "./image/snake-pink.png",
     "cost": 300
   },
   {
     "id": 7,
     "name": "Vampire",
     "class": "item-skin-vampire",
-    "image": "../image/snake-vampire.png",
+    "image": "./image/snake-vampire.png",
     "cost": 400
   },
   {
     "id": 8,
     "name": "Vampire with hat",
     "class": "item-head-vampire-hat",
-    "image": "../image/snake-vampire-hat.png",
+    "image": "./image/snake-vampire-hat.png",
     "cost": 500
   }
 ]

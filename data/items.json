@@ -3,14 +3,14 @@
     "id": 1,
     "name": "Super Fruit",
     "class": "item-watermelon",
-    "image": "../image/waterlemon.png",
+    "image": "./image/waterlemon.png",
     "cost": 30
   },
   {
     "id": 2,
     "name": "Disable Horizontal walls",
     "class": "item-horizont",
-    "image": "../image/horizoontal-walls.png",
+    "image": "./image/horizoontal-walls.png",
     "cost": 50
   },
   {
@@ -24,7 +24,7 @@
     "id": 4,
     "name": "UROBOROS MODE",
     "class": "item-suit",
-    "image": "../image/uroboros.png",
+    "image": "./image/uroboros.png",
     "cost": 5000
   }
 ]
