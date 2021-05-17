@@ -3,84 +3,28 @@
     "id": 1,
     "name": "Super Fruit",
     "class": "item-watermelon",
-    "avatar": "../image/waterlemon.png",
+    "image": "../image/waterlemon.png",
     "cost": 30
   },
   {
     "id": 2,
     "name": "Disable Horizontal walls",
     "class": "item-horizont",
-    "avatar": "../image/horizoontal-walls.png",
+    "image": "../image/horizoontal-walls.png",
     "cost": 50
   },
   {
     "id": 3,
     "name": "Disable Vertical walls",
     "class": "item-vertical",
-    "avatar": "./image/vertival-wall.png",
+    "image": "./image/vertival-wall.png",
     "cost": 50
   },
   {
     "id": 4,
     "name": "UROBOROS MODE",
     "class": "item-suit",
-    "avatar": "../image/uroboros.png",
+    "image": "../image/uroboros.png",
     "cost": 5000
-  },
-  {
-    "id": 5,
-    "name": "Cyberpunk",
-    "class": "item-cyber",
-    "avatar": "../image/body-cybepunk.png",
-    "cost": 350
-  },
-  {
-    "id": 6,
-    "name": "Punk",
-    "class": "item-punk",
-    "avatar": "../image/body-punk.png",
-    "cost": 300
-  },
-  {
-    "id": 7,
-    "name": "Zebra",
-    "class": "item-zebra",
-    "avatar": "../image/body-zebra.png",
-    "cost": 250
-  },
-  {
-    "id": 8,
-    "name": "You choice",
-    "class": "item-lgbt",
-    "avatar": "../image/body-lgbt.png",
-    "cost": 50
-  },
-  {
-    "id": 9,
-    "name": "Black",
-    "class": "item-skin-black",
-    "avatar": "../image/snake-black.png",
-    "cost": 300
-  },
-  {
-    "id": 10,
-    "name": "Pink",
-    "class": "item-skin-pink",
-    "avatar": "../image/snake-pink.png",
-    "cost": 300
-  },
-  {
-    "id": 11,
-    "name": "Vampire",
-    "class": "item-skin-vampire",
-    "avatar": "../image/snake-vampire.png",
-    "cost": 400
-  },
-  {
-    "id": 12,
-    "name": "Vampire with hat",
-    "class": "item-head-vampire-hat",
-    "avatar": "../image/snake-vampire-hat.png",
-    "cost": 500
   }
 ]

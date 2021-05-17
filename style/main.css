@@ -1,22 +1,22 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
           box-sizing: border-box;
           font-family: 'Zen Dots', cursive;
 }
 html {
   font-family: 'Zen Dots', cursive;
   line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  cursor: url('../image/curdef.cur'), auto;
 }
 button {
-  cursor: pointer;
+  cursor: url('../image/curpoint.cur'), auto;
 }
 label,
 input {
-  cursor: pointer;
+  cursor: url('../image/curpoint.cur'), auto;
 }
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
@@ -66,6 +66,7 @@ a {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding-bottom: 20px;
 }
 .video-filter {
@@ -102,11 +103,6 @@ a {
 }
 body {
   overflow-y: hidden; 
-}
-.body-damage {
-  -webkit-box-shadow: 0px 0px 15px 37px rgba(255, 0, 0, 0.37) inset;
-  -moz-box-shadow: 0px 0px 15px 37px rgba(255, 0, 0, 0.37) inset;
-  box-shadow: 0px 0px 15px 37px rgba(255, 0, 0, 0.37) inset;
 }
 .grass {
   padding: 0;
@@ -237,7 +233,7 @@ body {
   width: 100%;
   height: 30px;
   background: rgb(34,186,195);
-  background: linear-gradient(0deg, (42, 116, 165, 0.603) 0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(0deg, rgba(42, 116, 165, 0.603) 0%, rgb(255, 255, 255) 100%);
 }
 .start-section {
   width: 900px;
@@ -256,7 +252,7 @@ body {
   font-size: 20px;
   color: rgb(41, 41, 41);
   box-shadow: 2px 2px 4px green;
-  cursor: pointer;
+  cursor: url('../image/curpoint.cur'), auto;
   font-family: 'Zen Dots', cursive;
   background: chartreuse;
   padding: 20px 40px;
@@ -278,14 +274,22 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  animation: radial-pulse 0.7s infinite alternate ;
+}
+
+@keyframes radial-pulse {
+  0% {
+    box-shadow: 0px 0px 15px 20px rgba(255, 0, 0, 0.37) inset;
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0) inset;
+  }
 }
 .end-game--text {
   font-size: 40px;
 }
 .shop-section {
   padding: 20px 20px;
-  background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.041), rgb(86, 181, 184));
-  background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0.041), rgb(86, 181, 184));
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.041), rgb(86, 181, 184));
   width: 900px;
   height: 590px;
@@ -312,7 +316,7 @@ body {
   width: 100%;
   height: 34px;
   background: rgb(34,186,195);
-  background: linear-gradient(0deg, (42, 116, 165, 0.603) 0%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(0deg, rgba(42, 116, 165, 0.603) 0%, rgb(255, 255, 255) 100%);
 }
 .shop-button__main {
   display: block;
@@ -320,6 +324,7 @@ body {
   width: 50%;
 }
 .shop-wrap {
+  cursor: url('../image/curpoint.cur'), auto;
   text-align: center;
   min-height: 150px;
   padding: 10px 10px;
@@ -328,6 +333,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px;
 }
 .shop-wrap>img {
   object-fit: contain;
@@ -335,6 +341,7 @@ body {
   width: 50px;
 }
 .shop-wrap-active {
+  cursor: url('../image/curdef.cur'), auto;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.63) 0%, rgba(197, 193, 193, 0.685)100%);
   color: bisque;
 }
@@ -348,6 +355,10 @@ body {
 }
 .shop-wrap:hover {
   background: linear-gradient(0deg, rgba(32, 89, 128, 0.603) 0%, rgb(202, 200, 200) 100%);
+}
+.shop-wrap-active:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.63) 0%, rgba(197, 193, 193, 0.685)100%);
+  color: bisque;
 }
 .shop-image {
   display: block;
@@ -429,7 +440,7 @@ button:focus {
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 2000px;
+	width: 4000px;
 	height: 100%;
 	transition: 5s ease;
 }
@@ -470,14 +481,6 @@ button:focus {
   margin-top: -50px;
   text-align: center;
 }
-
-
-
-
-
-
-
-
 input[type='radio']:after {
   width: 30px;
   height: 30px;
@@ -485,13 +488,12 @@ input[type='radio']:after {
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #b0b4b0;
+  background-color: #ffffff;
   content: '';
   display: inline-block;
   visibility: visible;
-  border: 2px solid white;
+  border: 1px solid rgb(0, 0, 0);
 }
-
 input[type='radio']:checked:after {
   width: 30px;
   height: 30px;
@@ -499,13 +501,12 @@ input[type='radio']:checked:after {
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #ffa500;
+  background-color: chartreuse;
   content: '';
   display: inline-block;
   visibility: visible;
   border: 2px solid rgb(0, 0, 0);
 }
-
 input[type='radio']:disabled:after {
   width: 30px;
   height: 30px;
@@ -513,9 +514,9 @@ input[type='radio']:disabled:after {
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #f3f3f3;
+  background-color: #a0a0a0;
   content: '';
   display: inline-block;
   visibility: visible;
-  border: 2px solid rgb(255, 252, 252);
+  border: 1px solid rgb(255, 255, 255);
 }
