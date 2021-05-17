@@ -24,7 +24,7 @@ const shopListCosmetics = document.querySelector('.shop-list-cosmetics');
 var audioCasino = new Audio('./multimedia/casino.mp3');
 var audioBuy = new Audio('./multimedia/buy.mp3');
 var audioEat = new Audio('./multimedia/apple.mp3');
-var audioGameOver = new Audio('../multimedia/gameover.mp3');
+var audioGameOver = new Audio('./multimedia/gameover.mp3');
 var interval;
 let cards;
 var itemsShop;
@@ -42,12 +42,12 @@ function readTextFile(file, callback) {
   rawFile.send(null);
 }
 
-readTextFile("../data/items.json", function (text) {
+readTextFile("./data/items.json", function (text) {
   dataItems = JSON.parse(text);
   console.log(dataItems);
 });
 
-readTextFile("../data/cosmetics.json", function (text) {
+readTextFile("./data/cosmetics.json", function (text) {
   dataCosmetics = JSON.parse(text);
   console.log(dataCosmetics);
 });
@@ -127,7 +127,7 @@ function startGame() {
     for (let i = 0; i < 144; i++) {
       background.innerHTML += `<div class='grass'></div>`;
     }
-    background.innerHTML +=`<audio src="../multimedia/kalambur.mp3" preload loop autoplay></audio>`
+    background.innerHTML +=`<audio src="./multimedia/kalambur.mp3" preload loop autoplay></audio>`
   }
   createFloor();
 
