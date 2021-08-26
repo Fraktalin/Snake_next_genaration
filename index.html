@@ -5,15 +5,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Snake</title>
+  <link rel="icon" href="./image/favicon.ico" type="image/x-icon">
+  <meta name="description" content="Snake Next Generation, the best game">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="./style/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header class="main-header"></header>
+  <video class="video" muted autoplay loop src="./multimedia/Pixel-20495.mp4"></video>
+  <div class="video-filter"></div>
+  <header class="main-header">
+    <div class="perfect-score hide">
+      <span>score <span class="curren-score"></span></span>
+    </div>
+    <div class="money hide">
+      <span>Money <span class="current-money"></span></span>
+    </div>
+  </header>
   <main class="main-section">
-    <section class="play-section">
-      
+    <section class="start-section active">
+      <button class="start-shop main-button">Shop</button>
+      <button class="start-game main-button">Start</button>
+    </section>
+    <section class="play-section hide">
+    </section>
+    <section class="end-game hide">
+      <h2 class="end-game--text">Game over</h2>
+      <button class="main-menu-button main-button">Main menu</button>
+    </section>
+    <section class="shop-section hide">
+      <div class="button-shop-wrap">
+        <button class="main-button shop-button__skills shop-button shop-button--active">Skills</button>
+        <button class="main-button shop-button__skins shop-button">Skins</button>
+        <button class="main-button shop-button__roulette shop-button">Roulette</button>
+      </div>
+      <div data-name="Skills" class="shop-block shop-section__skills-block active">
+        <ul class="shop-list shop-list-buffs">
+        </ul>
+      </div>
+      <div data-name="Skins" class="shop-block shop-section__skins-block hide">
+        <ul class="shop-list shop-list-cosmetics">
+        </ul>
+      </div>
+      <div data-name="Roulette" class="shop-block shop-section__roulette-block hide">
+        <h3 class="roulette-cost">cost 100</h3>
+        <div class="shadow"></div>
+        <div class="random">
+          <div class="result"></div>
+          <ul class="cards">
+          </ul>
+        </div>
+        <button class="start main-button">START</button>
+      </div>
+      <div data-name="Profile" class="shop-block shop-section__profile-block hide">
+        <div class="profile-wrap">
+          <div class="profile-elem">
+            <h2>Choose Skin</h2>
+            <label class="input-wrap item-skin-def"><input class="radio-choice" type="radio" value="body-snake"
+                name="skin">
+              <img class="shop-image" src="./image/body.png" alt="defaultbody">
+            </label>
+            <label class="input-wrap item-skin-lgbt"><input class="radio-choice" type="radio" disabled
+                value="body-snake-lgbt" name="skin">
+              <img class="shop-image" src="./image/body-lgbt.png" alt="lgbt body">
+            </label>
+            <label class="input-wrap  item-skin-cyber"><input class="radio-choice" type="radio" disabled
+                value="body-snake-cyber" name="skin">
+              <img class="shop-image" src="./image/body-cybepunk.png" alt="cybepunk body">
+            </label>
+            <label class="input-wrap item-skin-punk"><input class="radio-choice" type="radio" disabled
+                value="body-snake-punk" name="skin">
+              <img class="shop-image" src="./image/body-punk.png" alt="">
+            </label>
+            <label class="input-wrap item-skin-zebra"><input class="radio-choice" type="radio" disabled
+                value="body-snake-zebra" name="skin">
+              <img class="shop-image" src="./image/body-zebra.png" alt="zebra body">
+            </label>
+          </div>
+          <div class="profile-elem">
+            <h2>Choose Head</h2>
+            <label class="input-wrap item-head-def"><input class="radio-choice" type="radio" value="snake" name="head">
+              <img class="shop-image" src="./image/snake.png" alt="">
+            </label>
+            <label class="input-wrap-head item-head-black"><input class="radio-head-choice" type="radio" disabled
+                value="snake-black" name="head">
+              <img class="shop-image" src="./image/snake-black.png" alt="black head">
+            </label>
+            <label class="input-wrap-head  item-head-pink"><input class="radio-head-choice" type="radio" disabled
+                value="snake-pink" name="head">
+              <img class="shop-image" src="./image/snake-pink.png" alt="pink head">
+            </label>
+            <label class="input-wrap-head  item-head-vampire"><input class="radio-head-choice" type="radio"
+                disabled value="snake-vampire" name="head">
+              <img class="shop-image" src="./image/snake-vampire.png" alt="vampire head">
+            </label>
+            <label class="input-wrap-head  item-head-vampire-hat"><input class="radio-head-choice" type="radio"
+                disabled value="snake-vampire-hat" name="head">
+              <img class="shop-image" src="./image/snake-vampire-hat.png" alt="vampire hat head">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="shop-button-wrap">
+        <button class="main-button shop-button__main">Main menu</button>
+        <button class="main-button shop-button profile-button">Profile</button>
+      </div>
     </section>
   </main>
   <footer class="main-footer"></footer>
